@@ -35,14 +35,12 @@ class UpdatePregnancyRequest extends FormRequest
                         return $fail('The date of term cannot be earlier than tomorrow.');
                     }
                     if ($dateOfTerm > $maxDate) {
-                        return $fail('The date of term cannot be more than 240 days from today.');
+                        return $fail('The date of term cannot be more than one pregnancy (240 days from today).');
                     }
                 }
             ],
             'babies' => 'required|array|min:1|max:6',
             'babies.*.gender' => 'required|string|in:boy,girl,unknown',
-            'after:' . $today,
-            'before_or_equal:' . $maxDate,
         ];
     }
 

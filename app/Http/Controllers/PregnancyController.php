@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
 use App\Http\Requests\StorePregnancyRequest;
 use App\Http\Requests\UpdatePregnancyRequest;
 use Illuminate\Support\Facades\Auth;
@@ -57,8 +56,8 @@ class PregnancyController extends Controller
 
         $pregnancy = new Pregnancy();
         $pregnancy->date_of_term = $validatedData['dateOfTerm'];
-        $pregnancy->babies = json_encode($validatedData['babies']); // Assuming you store babies as JSON
-        $pregnancy->user_id = Auth::user()->id; // Assuming the pregnancy is linked to the authenticated user
+        $pregnancy->babies = json_encode($validatedData['babies']);
+        $pregnancy->user_id = Auth::user()->id;
         $pregnancy->save();
 
         return redirect()->route('pregnancy.index')->with('success', 'Pregnancy created successfully.');
@@ -77,9 +76,7 @@ class PregnancyController extends Controller
      */
     public function edit(string $id)
     {
-        $pregnancy = Pregnancy::where('id', $id)
-                            ->select('id', 'date_of_term', 'babies')
-                            ->first();
+        $pregnancy = Pregnancy::where('id', $id)->select('id', 'date_of_term', 'babies')->first();
         
         if(!$pregnancy) {
             return redirect()->route('pregnancy.index')->withErrors('User can have only one active Pregnancy created.');

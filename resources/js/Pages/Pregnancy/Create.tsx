@@ -153,7 +153,7 @@ export default function Create({ auth }: PageProps) {
                 >
                   Cancel
                 </Link>
-                <PrimaryButton onClick={confirmFormSubmiting}>Submit</PrimaryButton>
+                <PrimaryButton onClick={confirmFormSubmiting}>Create</PrimaryButton>
               </div>
             </form>
           </div>

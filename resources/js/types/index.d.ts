@@ -36,7 +36,17 @@ export type ChildrenProps<T extends Record<string, unknown> = Record<string, unk
         user: User;
     };
     children: Child[];
+    success?: string;
+    errors?: string;
 };
 
+export type ChildProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
+    auth: {
+        user: User;
+    };
+    child: Child;
+    success?: string;
+    errors?: string;
+};
 
 
