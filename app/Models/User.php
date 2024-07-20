@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
 {
@@ -30,6 +32,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'email_verified_at',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -45,13 +50,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function children()
+    public function children(): HasMany
     {
         return $this->hasMany(Child::class);
     }
 
-    public function pregnancies()
-{
-    return $this->hasMany(Pregnancy::class);
-}
+    public function pregnancy(): HasOne
+    {
+        return $this->hasOne(Pregnancy::class);
+    }
 }

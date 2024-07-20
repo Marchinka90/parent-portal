@@ -16,9 +16,16 @@ class Pregnancy extends Model
      */
     protected $fillable = [
         'user_id',
-        'term_date',
+        'date_of_term',
         'babies',
     ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = ['created_at', 'updated_at'];
 
     /**
      * Get the user that owns the pregnancy.

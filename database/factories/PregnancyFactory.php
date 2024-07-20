@@ -43,7 +43,7 @@ class PregnancyFactory extends Factory
 
         return [
             'user_id' => User::factory(),
-            'term_date' => $termDate->format('Y-m-d'),
+            'date_of_term' => $termDate->format('Y-m-d'),
             'babies' => json_encode($babies),
         ];
     }

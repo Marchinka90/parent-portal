@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pregnancies', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->date('term_date');
+            $table->date('date_of_term');
             $table->json('babies')->nullable();
             $table->timestamps();
         });
