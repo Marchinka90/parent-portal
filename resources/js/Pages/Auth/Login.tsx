@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { Message } from 'primereact/message';
 
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -46,8 +47,10 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         isFocused={true}
                         onChange={(e) => setData('email', e.target.value)}
                     />
-
-                    <InputError message={errors.email} className="mt-2" />
+            
+                    {errors.email && (
+                        <Message severity="error" text={errors.email} className="mt-2" />
+                    )}
                 </div>
 
                 <div className="mt-4">
@@ -63,7 +66,9 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         onChange={(e) => setData('password', e.target.value)}
                     />
 
-                    <InputError message={errors.password} className="mt-2" />
+                    {errors.password && (
+                        <Message severity="error" text={errors.password} className="mt-2" />
+                    )}
                 </div>
 
                 <div className="block mt-4">
@@ -88,7 +93,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                     )}
 
                     <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
+                        <span className="p-menuitem-icon pi pi-fw pi-sign-in mr-1"></span>Log in
                     </PrimaryButton>
                 </div>
             </form>

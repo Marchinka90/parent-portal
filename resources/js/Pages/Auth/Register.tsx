@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { Message } from 'primereact/message';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -45,7 +46,9 @@ export default function Register() {
                         required
                     />
 
-                    <InputError message={errors.name} className="mt-2" />
+                    {errors.email && (
+                        <Message severity="error" text={errors.name} className="mt-2" />
+                    )}
                 </div>
 
                 <div className="mt-4">
@@ -62,7 +65,9 @@ export default function Register() {
                         required
                     />
 
-                    <InputError message={errors.email} className="mt-2" />
+                    {errors.email && (
+                        <Message severity="error" text={errors.email} className="mt-2" />
+                    )}
                 </div>
 
                 <div className="mt-4">
@@ -79,7 +84,9 @@ export default function Register() {
                         required
                     />
 
-                    <InputError message={errors.password} className="mt-2" />
+                    {errors.password && (
+                        <Message severity="error" text={errors.password} className="mt-2" />
+                    )}
                 </div>
 
                 <div className="mt-4">
@@ -95,8 +102,9 @@ export default function Register() {
                         onChange={(e) => setData('password_confirmation', e.target.value)}
                         required
                     />
-
-                    <InputError message={errors.password_confirmation} className="mt-2" />
+                    {errors.password_confirmation && (
+                        <Message severity="error" text={errors.password_confirmation} className="mt-2" />
+                    )}
                 </div>
 
                 <div className="flex items-center justify-end mt-4">
@@ -108,7 +116,7 @@ export default function Register() {
                     </Link>
 
                     <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
+                        <span className="p-menuitem-icon pi pi-fw pi-user-plus mr-1"></span>Register
                     </PrimaryButton>
                 </div>
             </form>

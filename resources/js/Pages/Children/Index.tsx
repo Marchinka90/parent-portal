@@ -61,20 +61,20 @@ export default function Index({
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
-          {success && (
-            <div className="bg-emerald-500 py-2 px-4 text-white rounded mb-4">
-              {success}
-            </div>
-          )}
-
-          {errorMessages.length > 0 && (
-            <div className="bg-red-500 py-2 px-4 text-white rounded mb-4">
-              {errorMessages.join(", ")}
-            </div>
-          )}
-
+          
           <Card className="shadow-sm" title="Children">
+            {success && (
+              <div className="bg-emerald-500 py-2 px-4 text-white rounded mb-4">
+                {success}
+              </div>
+            )}
+
+            {errorMessages.length > 0 && (
+              <div className="bg-red-500 py-2 px-4 text-white rounded mb-4">
+                {errorMessages.join(", ")}
+              </div>
+            )}
+
             <div className="p-6 text-gray-900 dark:text-gray-100">
               {children.length > 0 ? (
                 <>

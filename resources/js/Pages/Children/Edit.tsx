@@ -136,7 +136,7 @@ export default function Create({ auth, child }: ChildProps) {
                 </ButtonLink>
                 <PrimaryButton onClick={confirmFormSubmiting}>
                   <span className="p-menuitem-icon pi pi-fw pi-check mr-1"></span>
-                  Create
+                  Update
                 </PrimaryButton>
               </div>
             </form>
