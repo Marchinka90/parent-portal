@@ -25,7 +25,7 @@ class ChildFactory extends Factory
      */
     public function definition(): array
     {
-        // Generate a random date of birth within the range from now to +18 years
+        // Generate a random date of birth within the range before 18 years till now
         $startDate = now()->subYears(18);
         $endDate = now();
         $randomDate = $this->faker->dateTimeBetween($startDate, $endDate);

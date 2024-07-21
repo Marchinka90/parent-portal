@@ -16,8 +16,8 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                                <Link href="/" className="text-lg font-semibold text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400">
+                                    ParentPortal
                                 </Link>
                             </div>
 
@@ -26,10 +26,13 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                                     <span className="p-menuitem-icon pi pi-fw pi-home mr-1"></span>Dashboard
                                 </NavLink>
                                 <NavLink href={route('pregnancy.index')} active={route().current('pregnancy.index')}>
-                                <span className="p-menuitem-icon pi pi-fw pi-heart mr-1"></span> Pregnancy
+                                    <span className="p-menuitem-icon pi pi-fw pi-heart mr-1"></span> Pregnancy
                                 </NavLink>
                                 <NavLink href={route('children.index')} active={route().current('children.index')}>
-                                <span className="p-menuitem-icon pi pi-fw pi-users mr-1"></span> Children
+                                    <span className="p-menuitem-icon pi pi-fw pi-users mr-1"></span> Children
+                                </NavLink>
+                                <NavLink href={route('statistics.index')} active={route().current('statistics.index')}>
+                                    <span className="p-menuitem-icon pi pi-fw pi-chart-bar mr-1"></span> Statistics
                                 </NavLink>
                             </div>
                         </div>
@@ -62,9 +65,11 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
-                                        <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
+                                        <Dropdown.Link href={route('profile.edit')}>
+                                            <span className="p-menuitem-icon pi pi-fw pi-user-edit mr-1"></span>Profile
+                                        </Dropdown.Link>
                                         <Dropdown.Link href={route('logout')} method="post" as="button">
-                                            Log Out
+                                            <span className="p-menuitem-icon pi pi-fw pi-sign-out mr-1"></span>Log Out
                                         </Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
@@ -100,28 +105,33 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Dashboard
+                            <span className="p-menuitem-icon pi pi-fw pi-home mr-1"></span>Dashboard
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('pregnancy.index')} active={route().current('pregnancy.index')}>
-                            Pregnancy
+                            <span className="p-menuitem-icon pi pi-fw pi-heart mr-1"></span>Pregnancy
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('children.index')} active={route().current('children.index')}>
-                            Children
+                            <span className="p-menuitem-icon pi pi-fw pi-users mr-1"></span>Children
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('statistics.index')} active={route().current('statistics.index')}>
+                            <span className="p-menuitem-icon pi pi-fw pi-chart-bar mr-1"></span>Statistics
                         </ResponsiveNavLink>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
                         <div className="px-4">
                             <div className="font-medium text-base text-gray-800 dark:text-gray-200">
-                                {user.name}
+                                <span className="p-menuitem-icon pi pi-fw pi-user mr-1"></span> {user.name}
                             </div>
                             <div className="font-medium text-sm text-gray-500">{user.email}</div>
                         </div>
 
                         <div className="mt-3 space-y-1">
-                            <ResponsiveNavLink href={route('profile.edit')}>Profile</ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('profile.edit')}>
+                                <span className="p-menuitem-icon pi pi-fw pi-user-edit mr-1"></span>Profile
+                            </ResponsiveNavLink>
                             <ResponsiveNavLink method="post" href={route('logout')} as="button">
-                                Log Out
+                            <span className="p-menuitem-icon pi pi-fw pi-sign-out mr-1"></span>Log Out
                             </ResponsiveNavLink>
                         </div>
                     </div>

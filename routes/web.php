@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PregnancyController;
 use App\Http\Controllers\ChildrenController;
+use App\Http\Controllers\StatisticsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -43,7 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/children/edit/{id}', [ChildrenController::class, 'edit'])->name('children.edit');
     Route::put('/children/update/{id}', [ChildrenController::class, 'update'])->name('children.update');
     Route::delete('/children/delete/{id}', [ChildrenController::class, 'destroy'])->name('children.destroy');
-    
+    /*
+    | Statistics Routes
+    */
+    Route::get('/statistics', [StatisticsController::class, 'index'])->name('statistics.index');
 });
 
 require __DIR__.'/auth.php';

@@ -26,8 +26,8 @@ class PregnancyFactory extends Factory
     public function definition(): array
     {
         // Generate a random term date within the range from now - 120 days to now + 120 days
-        $startDate = now()->subDays(120);
-        $endDate = now()->addDays(120);
+        $startDate = now()->subDays(80);
+        $endDate = now()->addDays(160);
         $termDate = $this->faker->dateTimeBetween($startDate, $endDate);
 
         // Generate random number of babies (up to 5)

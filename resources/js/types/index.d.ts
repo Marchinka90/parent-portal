@@ -49,4 +49,24 @@ export type ChildProps<T extends Record<string, unknown> = Record<string, unknow
     errors?: string;
 };
 
+interface childrenDistribution {
+    underOneYear: number;
+    oneToSixYears: number;
+    sevenToEighteenYears: number;
+}
+
+export type StatisticsProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
+    auth: {
+        user: User;
+    };
+    numberOfUsers: number;
+    numberOfPregnancies: number;
+    numberOfChildren: number;
+    averageNumberOfChildrenPerParent: number
+    childrenDistribution: childrenDistribution;
+    pregnancyDistribution: []; 
+    success?: string;
+    errors?: string;
+};
+
 

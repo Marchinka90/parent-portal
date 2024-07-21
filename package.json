@@ -24,6 +24,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "chart.js": "^4.4.3",
         "primeicons": "^7.0.0",
         "primereact": "^10.7.0"
     }
